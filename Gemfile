@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+#specify which version of ruby we expect
+ruby '2.0.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -35,14 +38,12 @@ end
 # active record session store enabled
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+# group :development do
+#   gem 'sqlite3', '1.3.8'
+# end
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+#include pg for heroku
+group :production do
+  gem 'pg', '0.15.1'
+  gem 'rails_12factor', '0.0.2'
+end
