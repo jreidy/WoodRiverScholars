@@ -1,0 +1,97 @@
+// import the CSS framework
+@import "bootstrap";
+
+// make all images responsive by default
+img {
+  @extend .img-responsive;
+  margin: 0 auto;
+  }
+// override for the 'Home' navigation link
+.navbar-brand {
+  font-size: inherit;
+  }
+
+// THESE ARE EXAMPLES YOU CAN MODIFY
+// create your own classes
+// to make views framework-neutral
+.column {
+  @extend .col-md-6;
+  @extend .text-center;
+  }
+.form {
+  @extend .col-md-6;
+  }
+.form-centered {
+  @extend .col-md-6;
+  @extend .text-center;
+  }
+.submit {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .btn-lg;
+  }
+// apply styles to HTML elements
+// to make views framework-neutral
+main {
+  @extend .container;
+  background-color: #007A29;
+  padding-bottom: 80px;
+  width: 100%;
+  margin-top: 51px; // accommodate the navbar
+  }
+section {
+  @extend .row;
+  margin-top: 20px;
+  }
+
+
+$bgDefault      : #0e7a28;
+$bgHighlight    : #129031;
+$colDefault     : #eef2f8;
+$colHighlight   : #ffffff;
+.navbar-default {
+    background-color: $bgDefault;
+    border-color: $bgHighlight;
+    .navbar-brand {
+        color: $colDefault;
+        &:hover, &:focus {
+            color: $colHighlight; }}
+    .navbar-nav {
+        > li {
+            > a {
+                color: $colDefault;
+                &:hover, &:focus {
+                    color: $colHighlight;   }}}
+        .active {
+            > a, > a:hover, > a:focus {
+                color: $colHighlight;
+                background-color: $bgHighlight; }}
+        .open {
+            > a, > a:hover, > a:focus {
+                color: $colHighlight;
+                background-color: $bgHighlight;
+                .caret {
+                    border-top-color: $colHighlight;
+                    border-bottom-color: $colHighlight; }}}
+        > .dropdown {
+            > a {
+                .caret {
+                    border-top-color: $colDefault;
+                    border-bottom-color: $colDefault; }
+                &:hover, &:focus {
+                    .caret {
+                        border-top-color: $colHighlight;
+                        border-bottom-color: $colHighlight; }}}}}
+    .navbar-toggle {
+        border-color: $bgHighlight;
+        &:hover, &:focus {
+            background-color: $bgHighlight; }
+        .icon-bar {
+            background-color: $colDefault; }}}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+        color: $colDefault;
+        &:hover, &:focus {
+            color: $colHighlight;
+            background-color: $bgHighlight; }}
+}
